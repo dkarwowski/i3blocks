@@ -25,6 +25,7 @@
 #include "log.h"
 
 #define PROP_I3BAR	1 /* See http://i3wm.org/docs/i3bar-protocol.html */
+#define PROP_GAPS   1
 #define PROP_STRING	2
 #define PROP_NUMBER	4
 #define PROP_BOOLEAN	8
@@ -43,7 +44,7 @@
 #define PROPERTIES(_) \
 	_(full_text,             1024, PROP_I3BAR | PROP_STRING) \
 	_(short_text,            512,  PROP_I3BAR | PROP_STRING) \
-	_(color,                 8,    PROP_I3BAR | PROP_STRING) \
+	_(color,                 10,   PROP_I3BAR | PROP_STRING) \
 	_(min_width,             1024, PROP_I3BAR | PROP_STRING | PROP_NUMBER) \
 	_(align,                 8,    PROP_I3BAR | PROP_STRING) \
 	_(name,                  32,   PROP_I3BAR | PROP_STRING) \
@@ -57,6 +58,12 @@
 	_(signal,                8,                 PROP_NUMBER) \
 	_(label,                 32,                PROP_STRING) \
 	_(format,                8,                 PROP_STRING | PROP_NUMBER) \
+	_(background,            10,   PROP_GAPS  | PROP_STRING) \
+	_(border,                10,   PROP_GAPS  | PROP_STRING) \
+	_(border_left,           8,    PROP_GAPS  | PROP_NUMBER) \
+	_(border_top,            8,    PROP_GAPS  | PROP_NUMBER) \
+	_(border_right,          8,    PROP_GAPS  | PROP_NUMBER) \
+	_(border_bottom,         8,    PROP_GAPS  | PROP_NUMBER) \
 
 struct properties {
 #define DEFINE(_name, _size, _flags) char _name[_size];
